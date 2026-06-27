@@ -113,7 +113,7 @@ sudo systemctl enable --now genera-tap0.service
 
 ```
 run-genera-vm-vnc.sh     host: VM + Xvnc(old X) + VNC viewer   ← recommended
-run-genera-vm.sh         host: VM + ssh-X-forward into Xephyr
+run-genera-vm-x.sh       host: VM + ssh-X-forward into Xephyr
 run-genera-gui.sh        host: run the VLM directly in a Xephyr window
 genera-displayfix.c      LD_PRELOAD shim fixing Genera's $DISPLAY parsing bug
 genera-fullscreen.c      makes the Xephyr window borderless on a monitor

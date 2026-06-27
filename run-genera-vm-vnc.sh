@@ -33,9 +33,17 @@ echo "Display size: $GEO (monitor $MONITOR)"
 # keep running in the VM regardless of the viewer. Re-running this script just
 # reconnects; it does NOT kill a running genera (so you don't lose your session).
 
-# 1. Make sure the VM is running.
+# 1. The VM must exist and be running. Detect; if stopped, prompt to start it.
+if ! VBoxManage list vms | grep -q "\"$VM\""; then
+  echo "VM '$VM' does not exist. Build it first:  $DIR/vm/build-vm.sh" >&2
+  exit 1
+fi
 if ! VBoxManage list runningvms | grep -q "\"$VM\""; then
-  echo "Starting VM $VM..."; VBoxManage startvm "$VM" --type headless >/dev/null
+  read -r -p "VM '$VM' is not running. Start it now? [Y/n] " ans
+  case "${ans:-Y}" in
+    [Nn]*) echo "Not started. Run:  VBoxManage startvm $VM --type headless"; exit 1 ;;
+    *) echo "Starting VM $VM..."; VBoxManage startvm "$VM" --type headless >/dev/null ;;
+  esac
 fi
 echo -n "Waiting for VM ssh"
 for _ in $(seq 1 60); do "$VMDIR/vmssh" true >/dev/null 2>&1 && break; echo -n .; sleep 3; done; echo
