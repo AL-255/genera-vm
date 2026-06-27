@@ -6,7 +6,7 @@
 # Flow: host Xephyr (:3)  <--ssh X11 tunnel--  genera (in VM, DISPLAY=localhost:10.0)
 set -u
 
-DIR=/home/yukidama/genera
+DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 VMDIR=$DIR/vm
 VM=genera-nfs
 NESTED=:3

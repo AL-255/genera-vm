@@ -11,7 +11,7 @@
 #     ":<n>" so the connection succeeds.
 set -u
 
-GENERA_DIR=/home/yukidama/genera
+GENERA_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 NESTED_DISPLAY=:3
 MONITOR=DVI-I-1           # host monitor to cover (override: MONITOR=HDMI-1 ./run-genera-gui.sh)
 SHIM="$GENERA_DIR/genera-displayfix.so"

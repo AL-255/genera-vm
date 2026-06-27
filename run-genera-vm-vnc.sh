@@ -9,7 +9,7 @@
 #   With no argument, the size auto-detects from the DVI-I-1 monitor (1:1).
 set -u
 
-DIR=/home/yukidama/genera
+DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 VMDIR=$DIR/vm
 VM=genera-nfs
 MONITOR=DVI-I-1          # host monitor whose size to match (override: MONITOR=HDMI-1 ...)
