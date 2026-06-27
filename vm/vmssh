@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# ssh into the genera VM (NAT port 2222, key-based).
+HERE=$(cd "$(dirname "$0")" && pwd)
+exec ssh -i "$HERE/id_genera" -p 2222 \
+  -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ConnectTimeout=8 \
+  genera@127.0.0.1 "$@"

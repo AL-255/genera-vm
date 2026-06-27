@@ -1,0 +1,27 @@
+#cloud-config
+hostname: genera-nfs
+users:
+  - name: genera
+    groups: [sudo]
+    sudo: "ALL=(ALL) NOPASSWD:ALL"
+    shell: /bin/bash
+    lock_passwd: false
+    ssh_authorized_keys:
+      - __PUBKEY__
+ssh_pwauth: false
+package_update: true
+package_upgrade: false
+packages:
+  - nfs-kernel-server
+  - rpcbind
+  - build-essential
+  - libx11-dev
+  - xauth
+  - net-tools
+  - openbsd-inetd
+  - tigervnc-standalone-server
+  - xfonts-base
+  - x11-utils
+runcmd:
+  - [ systemctl, enable, --now, rpcbind ]
+  - [ systemctl, enable, --now, nfs-server ]

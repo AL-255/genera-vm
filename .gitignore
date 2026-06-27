@@ -1,0 +1,26 @@
+# --- Proprietary Symbolics assets (you must supply these; see README) ---
+genera
+*.vlod
+var_lib_symbolics.tar.gz
+VLM_debugger
+docs/
+
+# --- Environment-specific runtime config (a template is tracked) ---
+.VLM
+
+# --- Build artifacts ---
+*.so
+*.o
+genera-fullscreen
+
+# --- VM: large/generated images, secrets, generated seed ---
+vm/*.qcow2
+vm/*.vdi
+vm/*.iso
+vm/id_genera
+vm/id_genera.pub
+vm/seed/user-data
+
+# --- Other experiments / not part of this setup ---
+vagrant-opengenera/
+start-genera-loomcom.sh

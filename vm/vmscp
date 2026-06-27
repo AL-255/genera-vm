@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# scp to/from the genera VM (NAT port 2222, key-based).
+HERE=$(cd "$(dirname "$0")" && pwd)
+exec scp -i "$HERE/id_genera" -P 2222 \
+  -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null "$@"
