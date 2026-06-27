@@ -145,4 +145,9 @@ vm/
 - **Integer/nearest‑neighbor scaling** isn't wired in (Xephyr rejects RandR
   transforms). With VNC, scale in the viewer; `gamescope -F nearest -S integer`
   is a possible route if you have a working GPU/Vulkan.
-```
+
+## References
+
+- Symbolics documentation & software archive — <https://www.bitsavers.org/pdf/symbolics/>
+- Open Genera on Linux notes (oubiwann) — <https://gist.github.com/oubiwann/1e7aadfc22e3ae908921aeaccf27e82d>
+- Running Open Genera 2.0 on Linux (loomcom) — <https://archives.loomcom.com/genera/genera-install.html>
